@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif, Arial, Helvetica;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* evita barra de rolagem indesejada */
+}
+
+body{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("https://picsum.photos/1920/1089?random=1"); 
+  /* muda quando entra */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
