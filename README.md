@@ -1,32 +1,36 @@
-# app_clima
+# App Clima (React Native + Expo)
 
-App mobile de previsão do tempo feito com **React Native + Expo**, que consome a **OpenWeather API** e exibe temperatura, descrição, sensação térmica, umidade e vento da cidade pesquisada.
+Aplicativo mobile de previsão do tempo feito com React Native e Expo. O usuário digita uma cidade e o app exibe temperatura, sensação térmica, descrição, umidade e vento, consumindo a OpenWeather API.
 
-Projeto acadêmico (Atividade Individual 04) de consumo de APIs.
+## Como funciona
+
+O app não guarda a chave da OpenWeather. Ele chama um proxy (`api/weather.js`, hospedado na Vercel), que adiciona a chave no servidor e repassa a resposta da OpenWeather.
+
+## Tecnologias
+
+- React Native
+- Expo
+- OpenWeather API
+- Vercel (função serverless como proxy)
 
 ## Como rodar
 
 ```bash
 npm install
-cp .env.example .env   # preencha as variáveis
+cp .env.example .env
 npx expo start
 ```
 
-Abra no celular com o app **Expo Go** (QR code) ou aperte `w` para rodar no navegador.
+No `.env`, defina a URL do proxy:
 
-## Configuração da API
+```
+EXPO_PUBLIC_API_URL=https://app-clima-virid-nine.vercel.app
+```
 
-Crie uma chave gratuita em https://openweathermap.org/api e escolha uma opção no `.env`:
-
-- **Proxy (recomendado):** deploy na Vercel com a variável `OPENWEATHER_KEY` e `EXPO_PUBLIC_API_URL=https://seu-app.vercel.app`. A chave fica no servidor (`api/weather.js`).
-- **Direto (testes):** `EXPO_PUBLIC_OPENWEATHER_KEY=sua_chave`. Variáveis `EXPO_PUBLIC_*` ficam embutidas no app.
+Abra o app no celular com o **Expo Go**, escaneando o QR code. Em ambientes como o GitHub Codespaces, use `npx expo start --tunnel`.
 
 ## Estrutura
 
-- `App.js` — tela e estados (cidade, loading, erro, resultado)
-- `src/weatherService.js` — chamada à API e tratamento de erros
-- `api/weather.js` — função serverless (proxy) que esconde a chave
-
-## Tecnologias
-
-React Native, Expo, OpenWeather API
+- `App.js`: tela principal
+- `src/weatherService.js`: chamada à API e tratamento dos dados
+- `api/weather.js`: proxy serverless que guarda a chave da OpenWeather
