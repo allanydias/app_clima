@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "app_clima",
+    "slug": "app-clima",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "ios": { "supportsTablet": true },
+    "android": {},
+    "web": {}
+  }
+}
